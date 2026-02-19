@@ -14,3 +14,9 @@ Route::get('/saludos', function () {
 });
 // usando una función flecha:
 Route::get ('/saludar', fn () => view('saludar'));
+
+// rutas con view() versión  corta, solo para solicitudes get:
+Route::view('/', 'main');
+Route::view('about', 'about');
+Route::view('alumnos', 'alumnos');
+Route::view('noticias', 'noticias');
