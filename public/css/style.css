@@ -1,0 +1,10 @@
+header{
+    background-color: blue;
+    height: 5rem;
+    color:white
+}
+a{
+    background-color: gray;
+    padding: 8px;
+    color:blue;
+}
