@@ -48,11 +48,29 @@ Route::get ("/alumno/{numero}",
     view("alumno", ["numero" => $numero_alumno])
 );
 
-Route::get ("/profesores/{param}",
-    fn($num_prof) =>
-    view("profesores", ["param" => $num_prof])
+Route::get ("/profesores/{param}/{seccion}",
+    fn($num_prof, $section) =>
+    view("profesores", ["param" => $num_prof, "seccion" => $section])
 );
+/*
+Route::delete ("/profesores/{param}/{seccion}",);
+Route::post ("/profesores/{param}/{seccion}",);
+Route::patch ("/profesores/{param}/{seccion}",);
+Route::middleware();
+*/
 
+// Pagina noe existe
+// Url completa
+Route::fallback(function () {
+    $nombre = request()->url();
+    return view('404');
+});
+
+// Path -> nombre del recurso
+Route::fallback(function () {
+    $nombre = request()->path();
+    return view('404');
+});
 
 
 
