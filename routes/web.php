@@ -1,29 +1,27 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main');
 });
-//Route::get('saludar', function(){
-//    return view('saludar');
-//} );
-Route::get('saludar_url', fn()=> view('saludar'));
+
+Route::view("noticias","noticias" )->name("noticias");
+Route::view("alumnos","alumnos" )->name("alumnos");
+Route::view("profesores","profesores" )->name("profesores");
+Route::view("/","main" )->name("main");
+Route::view("about","about" )->name("about");
 
 
-Route::view("saludar_1","saludar" );
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::view("saludar_2","saludar" );
-Route::view("about","about" );
-Route::view("noticias","noticias" );
-Route::view("alumnos","alumnos" );
-Route::view("profesores","profesores" );
-Route::view("/","main" );
-Route::view("about","about" );
-//Route::get("about", fn()=> view('about'));
-//Rout::get("about", function(){
-//    return view('about');
-//});
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-
-
+require __DIR__.'/auth.php';

@@ -11,20 +11,11 @@
 
 </head>
 <body>
-<header class="h-header bg-header">
- cabecera
-</header>
-<nav class="h-nav bg-nav">
-    <a href="/about" class="btn btn-glass">About</a>
-    <a href="/noticias" class="btn btn-glass text-header">Noticias</a>
-    <a href="/alumnos" class="btn btn-glass">Alumnos</a>
-</nav>
+<x-layouts.header></x-layouts.header>
+<x-layouts.nav ></x-layouts.nav>
 <main class="h-main bg-main">
     {{$slot}}
 </main>
-<footer class="h-footer, bg-footer">
-
-</footer>
-
+<x-layouts.footer></x-layouts.footer>
 </body>
 </html>
