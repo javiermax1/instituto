@@ -16,7 +16,7 @@
     <a href="/alumnos">Alumnos</a>
 </header>
 <main>
-    <h1>Estoy en Noticias</h1>
+    <h1>Estoy en Profesores de {{$param}}</h1>
 </main>
 </body>
 </html>
