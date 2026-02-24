@@ -1,16 +1,19 @@
 <?php
 
+// Namespace con la ruta completa de la clase hay que referenciar todas
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('main');
-});
+// Ruta controladora de la clase Controller MainController
+// 'main' -> alude al nombre del métod en el controlador
+//Route::get('/', [MainController::class, 'main'])->name('main');
+
 
 Route::view("noticias","noticias" )->name("noticias");
 Route::view("alumnos","alumnos" )->name("alumnos");
 Route::view("profesores","profesores" )->name("profesores");
-Route::view("/","main" )->name("main");
+//Route::view("/","main" )->name("main");
 Route::view("about","about" )->name("about");
 
 
@@ -59,6 +62,12 @@ Route::patch ("/profesores/{param}/{seccion}",);
 Route::middleware();
 */
 
+
+
+Route::get ("/",[MainController::class, "main"])->name("main");
+
+
+require __DIR__.'/auth.php';
 // Pagina noe existe
 // Url completa
 Route::fallback(function () {
@@ -71,7 +80,3 @@ Route::fallback(function () {
     $nombre = request()->path();
     return view('404');
 });
-
-
-
-require __DIR__.'/auth.php';
