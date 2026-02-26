@@ -17,11 +17,12 @@
     --height-nav:10vh;
 
     /*    style="backgroud-color:#ffAAGG"*/
-    --color-header:#56D9E5;
+    --color-header: #9aa6a2;
     --color-nav:#A4E0E6;
     --color-main:#FFFFFF;
     --color-footer:#000000;
-    --color-titulo:#8C1D07;
+    --color-titulo: #000000;
+
 
 }
 .boton{

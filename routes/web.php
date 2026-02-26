@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
 // Ejemplo algo más completo con view que te manda a la página profesor un parámetro numero
 // Resultado: http://127.0.0.1:8000/profesor/4
 // Resultado: http://127.0.0.1:8000/profesor/25
+
 Route::get ("/profesor/{maestro}",
     fn($num_profesor) =>
     view("profesor", ["numero" => $num_profesor])
@@ -51,10 +52,11 @@ Route::get ("/alumno/{numero}",
     view("alumno", ["numero" => $numero_alumno])
 );
 
-Route::get ("/profesores/{param}/{seccion}",
+/*Route::get ("/profesores/{param}/{seccion}",
     fn($num_prof, $section) =>
     view("profesores", ["param" => $num_prof, "seccion" => $section])
-);
+);*/
+
 /*
 Route::delete ("/profesores/{param}/{seccion}",);
 Route::post ("/profesores/{param}/{seccion}",);

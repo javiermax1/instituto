@@ -3,4 +3,5 @@
     <a href="{{route('about')}}" class="btn btn-glass text-header">About</a>
     <a href="{{route('noticias')}}" class="btn btn-glass text-header">Noticias</a>
     <a href="{{route('alumnos')}}" class="btn btn-glass text-header">Alumnos</a>
+    <a href="{{route('profesores')}}" class="btn btn-glass text-header">Profesores</a>
 </nav>
