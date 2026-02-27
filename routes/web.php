@@ -4,18 +4,17 @@
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\LangController;
 
 // Ruta controladora de la clase Controller MainController
 // 'main' -> alude al nombre del métod en el controlador
 //Route::get('/', [MainController::class, 'main'])->name('main');
-
 
 Route::view("noticias","noticias" )->name("noticias");
 Route::view("alumnos","alumnos" )->name("alumnos");
 Route::view("profesores","profesores" )->name("profesores");
 //Route::view("/","main" )->name("main");
 Route::view("about","about" )->name("about");
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -64,10 +63,7 @@ Route::patch ("/profesores/{param}/{seccion}",);
 Route::middleware();
 */
 
-
-
 Route::get ("/",[MainController::class, "main"])->name("main");
-
 
 require __DIR__.'/auth.php';
 // Pagina noe existe
@@ -78,7 +74,12 @@ Route::fallback(function () {
 });
 
 // Path -> nombre del recurso
+require __DIR__ . '/auth.php';
+Route::post("set_lang",LangController::class)->name("set_lang");
+
+
 Route::fallback(function () {
-    $nombre = request()->path();
-    return view('404');
+    $url = request()->path();
+    return ("<h1>Esta página $url no existe</h1>");
 });
+//Route::post("set_lang", [LangController::class, "__invoke"]);
